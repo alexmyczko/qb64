@@ -15,8 +15,8 @@
  #define DEPENDENCY_SCREENIMAGE
 #endif
 
-#ifndef INC_COMMON_CPP
-#define INC_COMMON_CPP
+#ifndef INC_COMMON_H
+#define INC_COMMON_H
 #include "os.h"
 
 #define QB64_GL1
@@ -283,4 +283,4 @@ struct mem_lock{
   void *offset;//used by malloc'ed blocks to free them
 };
 
-#endif //INC_COMMON_CPP
+#endif //INC_COMMON_H

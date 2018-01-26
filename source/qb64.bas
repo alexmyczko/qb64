@@ -11882,7 +11882,7 @@ depstr$ = ver$ + "_"
 FOR i = 1 TO DEPENDENCY_LAST
     IF DEPENDENCY(i) THEN depstr$ = depstr$ + "1" ELSE depstr$ = depstr$ + "0"
 NEXT
-libqb$ = " libqb\os\" + o$ + "\libqb_" + depstr$ + ".o "
+libqb$ = "libqb\os\" + o$ + "\libqb.a "
 PATH_SLASH_CORRECT libqb$
 IF _FILEEXISTS("internal\c\" + LTRIM$(RTRIM$(libqb$))) = 0 THEN
     CHDIR "internal\c"
@@ -11892,7 +11892,8 @@ IF _FILEEXISTS("internal\c\" + LTRIM$(RTRIM$(libqb$))) = 0 THEN
         IF mac THEN
             SHELL _HIDE GDB_Fix("g++ -c -s -w -Wall libqb.mm " + defines$ + " -o libqb/os/" + o$ + "/libqb_" + depstr$ + ".o") + " 2>> ../../" + compilelog$
         ELSE
-            SHELL _HIDE GDB_Fix("g++ -c -s -w -Wall libqb.cpp -D FREEGLUT_STATIC " + defines$ + " -o libqb/os/" + o$ + "/libqb_" + depstr$ + ".o") + " 2>> ../../" + compilelog$
+       '     SHELL _HIDE GDB_Fix("g++ -c -s -w -Wall libqb.cpp -D FREEGLUT_STATIC " + defines$ + " -o libqb/os/" + o$ + "/libqb_" + depstr$ + ".o") + " 2>> ../../" + compilelog$
+            SHELL _HIDE "libqb/build.sh -D FREEGLUT_STATIC " + defines$
         END IF
     END IF
     CHDIR "..\.."

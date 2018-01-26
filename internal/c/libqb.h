@@ -68,4 +68,8 @@ extern int32 no_control_characters2;
 
 extern qbs *qbs_lcase(qbs *str);
 extern qbs *qbs_ucase(qbs *str);
+
+void alert(int32 x);
+void alert(char *x);
+
 #endif
