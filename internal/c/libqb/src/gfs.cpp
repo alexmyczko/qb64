@@ -1,5 +1,8 @@
 #include "common.h"
+#include "libqb.h"
+#include "qbs.h"
 #include "gfs.h"
+
 
 
 #ifdef GFS_WINDOWS

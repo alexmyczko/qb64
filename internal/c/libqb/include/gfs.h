@@ -81,18 +81,40 @@ struct gfs_file_struct{//info applicable to all files
 struct gfs_file_win_struct{//info applicable to WINDOWS OS files
   HANDLE file_handle;
 };
-gfs_file_win_struct *gfs_file_win;
+extern gfs_file_win_struct *gfs_file_win;
 #endif
 
-int64 gfs_nextid;
-gfs_file_struct *gfs_file;
+extern int64 gfs_nextid;
+extern gfs_file_struct *gfs_file;
 
-int32 gfs_n;
-int32 gfs_freed_n;
-int32 *gfs_freed;
-int32 gfs_freed_size;
+extern int32 gfs_n;
+extern int32 gfs_freed_n;
+extern int32 *gfs_freed;
+extern int32 gfs_freed_size;
 
-int32 *gfs_fileno;
-int32 gfs_fileno_n;
+extern int32 *gfs_fileno;
+extern int32 gfs_fileno_n;
 
+extern int64 gfs_read_bytes_value;
+
+int32 gfs_new();
+int32 gfs_validhandle(int32 i);
+int32 gfs_fileno_valid(int32 f);
+int32 gfs_fileno_freefile();
+void gfs_fileno_use(int32 f, int32 i);
+void gfs_fileno_free(int32 f);
+int32 gfs_free(int32 i);
+int32 gfs_close(int32 i);
+int64 gfs_lof(int32 i);
+int32 gfs_open_com_syntax(qbs *fstr,gfs_file_struct *f);
+int32 gfs_open(qbs *filename,int32 access,int32 restrictions, int32 how);
+int32 gfs_setpos(int32 i, int64 position);
+int64 gfs_getpos(int32 i);
+int32 gfs_write(int32 i,int64 position,uint8 *data,int64 size);
+int64 gfs_read_bytes();
+int32 gfs_read(int32 i,int64 position,uint8 *data,int64 size);
+int32 gfs_eof_reached(int32 i);
+int32 gfs_eof_passed(int32 i);
+int32 gfs_lock(int32 i,int64 offset_start,int64 offset_end);
+int32 gfs_unlock(int32 i,int64 offset_start,int64 offset_end);
 #endif

@@ -72,4 +72,15 @@ extern qbs *qbs_ucase(qbs *str);
 void alert(int32 x);
 void alert(char *x);
 
+char *fixdir(qbs *filename);
+
+extern uint8 *cmem_static_pointer;
+extern uint8 *cmem_dynamic_base;
+extern uint32 qbs_cmem_descriptor_space;
+extern uint32 qbs_cmem_sp; //=256;
+extern uint32 cmem_sp; //=65536;
+extern ptrszint dblock; //32bit offset of dblock
+extern uint64 *nothingvalue;
+
+void field_free(qbs *str);
 #endif
