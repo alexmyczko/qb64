@@ -83,4 +83,11 @@ extern ptrszint dblock; //32bit offset of dblock
 extern uint64 *nothingvalue;
 
 void field_free(qbs *str);
+
+extern int32 pages;
+extern int32 *page;
+extern int32 nextimg;
+extern img_struct *img;
+extern int32 screen_hide;
+extern void Sleep(uint32 milliseconds);
 #endif
